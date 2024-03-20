@@ -1,0 +1,171 @@
+const initialState = {
+  loggedIn: null,
+  users: [
+    {
+      username: "aruzhan",
+      email: "email",
+      name: "User name1",
+      surname: "User surname1",
+      password: "123456",
+      phoneNumber: null,
+      birthday: null,
+      favorites: [],
+    },
+    {
+      username: "umit",
+      email: "email",
+      name: "User name1",
+      surname: "User surname1",
+      password: "password",
+      phoneNumber: null,
+      birthday: null,
+      favorites: [],
+    },
+    {
+      username:"aruzhan",
+      email: "email",
+      name: "User name1",
+      surname: "User surname1",
+      password: "password",
+      phoneNumber: null,
+      birthday: null,
+      favorites: [
+        {
+          id: 1,
+          name: "BMW M4 Coupe: A Two-Door",
+          brief_description: "Lorem ipsum",
+          detailed_description: "Lorem Lorem Lorem Loren",
+          images: [
+            "https://s3-alpha-sig.figma.com/img/4bae/8437/fea176a66b72afeed0f229f47853b5db?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=G7SBhjCkTbqlqILgq0o5FOxAHwFQhho2TpsvyUhFVjGtSTR~SEpTPj28k5-N1Vk~eudqpAOm7h6Zu6N~XTLqx6KKG0uO19V2LzRWAghJVYGQQTdqOtoKCcnyqPugVsVwvnVVCpS7pKUwRA-LuZoKyuNCGydDTW~9VVIozls8F9Eyfi85mqFituZ8gMcrTb3rgoMdevk4s691-X9nhg5UIBE8XkutP1U6Of~3ahdnuaArkVoQ8wZ-kkmH7HcPE2IJ97KXZdRrtVu0V6Pn7QOicXtxZ0JtvpSRTAHSRprs0afZNz7mjvqLCC4UNYawT6fpe8~zPZypYYljl1CdS4Wu2w__",
+          ],
+          price: 23000,
+          n_of_likes: 100,
+        },
+      ],
+    },
+  ],
+  items: [
+    {
+      id: 1,
+      name: "BMW M4 Coupe: A Two-Door",
+      brief_description: "Lorem ipsum",
+      detailed_description: "Lorem Lorem Lorem Loren",
+      images: [
+        "https://s3-alpha-sig.figma.com/img/4bae/8437/fea176a66b72afeed0f229f47853b5db?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=G7SBhjCkTbqlqILgq0o5FOxAHwFQhho2TpsvyUhFVjGtSTR~SEpTPj28k5-N1Vk~eudqpAOm7h6Zu6N~XTLqx6KKG0uO19V2LzRWAghJVYGQQTdqOtoKCcnyqPugVsVwvnVVCpS7pKUwRA-LuZoKyuNCGydDTW~9VVIozls8F9Eyfi85mqFituZ8gMcrTb3rgoMdevk4s691-X9nhg5UIBE8XkutP1U6Of~3ahdnuaArkVoQ8wZ-kkmH7HcPE2IJ97KXZdRrtVu0V6Pn7QOicXtxZ0JtvpSRTAHSRprs0afZNz7mjvqLCC4UNYawT6fpe8~zPZypYYljl1CdS4Wu2w__",
+      ],
+      price: 23000,
+      n_of_likes: 100,
+    },
+    {
+      id: 2,
+      name: "Adidas Yeezy 500",
+      brief_description: "Lorem ipsum",
+      detailed_description: "Lorem Lorem Lorem Loren",
+      images: [
+        "https://s3-alpha-sig.figma.com/img/5590/5549/2069afa9836751980ab25b2d6c747052?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EvP4grzEGty0otzCD3AaXmn05xeu2kw0cJSru6solxYy7gVuIVlsP-l~VqrW6qVc3HDG5RKZZbmvXkZJIfl5ZXk~7t7rnuW7saXR5rYLgBNB7W3sTAY9YaK-VQWqot5l6RmemTLXNaeFBAJsTl4g5Y3~YKcA~LtQPaHGIR-~73PDhwgmFvy8nFoCerOnTy6-ubSyev0AIa76vRQVfEH-mKzB9Ah8CL~nzq8i9aOmUn9ElP-gGXzMTfqPUJM8zvppL7MxFaVr3Q4fWUgtc-4XJvPrVjuikFxHRDtEqU8R-nTRqmYak4tJ~1jfpJxmTMSNMYe8hkkhNwYnxQd8HxRJjw__",
+      ],
+      price: 23000,
+      n_of_likes: 10000,
+    },
+    {
+      id: 3,
+      name: "Adidas Yeezy 500",
+      brief_description: "Lorem ipsum",
+      detailed_description: "Lorem Lorem Lorem Loren",
+      images: [
+        "https://s3-alpha-sig.figma.com/img/5590/5549/2069afa9836751980ab25b2d6c747052?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EvP4grzEGty0otzCD3AaXmn05xeu2kw0cJSru6solxYy7gVuIVlsP-l~VqrW6qVc3HDG5RKZZbmvXkZJIfl5ZXk~7t7rnuW7saXR5rYLgBNB7W3sTAY9YaK-VQWqot5l6RmemTLXNaeFBAJsTl4g5Y3~YKcA~LtQPaHGIR-~73PDhwgmFvy8nFoCerOnTy6-ubSyev0AIa76vRQVfEH-mKzB9Ah8CL~nzq8i9aOmUn9ElP-gGXzMTfqPUJM8zvppL7MxFaVr3Q4fWUgtc-4XJvPrVjuikFxHRDtEqU8R-nTRqmYak4tJ~1jfpJxmTMSNMYe8hkkhNwYnxQd8HxRJjw__",
+      ],
+      price: 23000,
+      n_of_likes: 10000,
+    },
+    {
+      id: 5,
+      name: "Adidas Yeezy 500",
+      brief_description: "Lorem ipsum",
+      detailed_description: "Lorem Lorem Lorem Loren",
+      images: [
+        "https://s3-alpha-sig.figma.com/img/5590/5549/2069afa9836751980ab25b2d6c747052?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EvP4grzEGty0otzCD3AaXmn05xeu2kw0cJSru6solxYy7gVuIVlsP-l~VqrW6qVc3HDG5RKZZbmvXkZJIfl5ZXk~7t7rnuW7saXR5rYLgBNB7W3sTAY9YaK-VQWqot5l6RmemTLXNaeFBAJsTl4g5Y3~YKcA~LtQPaHGIR-~73PDhwgmFvy8nFoCerOnTy6-ubSyev0AIa76vRQVfEH-mKzB9Ah8CL~nzq8i9aOmUn9ElP-gGXzMTfqPUJM8zvppL7MxFaVr3Q4fWUgtc-4XJvPrVjuikFxHRDtEqU8R-nTRqmYak4tJ~1jfpJxmTMSNMYe8hkkhNwYnxQd8HxRJjw__",
+      ],
+      price: 23000,
+      n_of_likes: 10000,
+    },
+    {
+      id: 6,
+      name: "Adidas Yeezy 500",
+      brief_description: "Lorem ipsum",
+      detailed_description: "Lorem Lorem Lorem Loren",
+      images: [
+        "https://s3-alpha-sig.figma.com/img/5590/5549/2069afa9836751980ab25b2d6c747052?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EvP4grzEGty0otzCD3AaXmn05xeu2kw0cJSru6solxYy7gVuIVlsP-l~VqrW6qVc3HDG5RKZZbmvXkZJIfl5ZXk~7t7rnuW7saXR5rYLgBNB7W3sTAY9YaK-VQWqot5l6RmemTLXNaeFBAJsTl4g5Y3~YKcA~LtQPaHGIR-~73PDhwgmFvy8nFoCerOnTy6-ubSyev0AIa76vRQVfEH-mKzB9Ah8CL~nzq8i9aOmUn9ElP-gGXzMTfqPUJM8zvppL7MxFaVr3Q4fWUgtc-4XJvPrVjuikFxHRDtEqU8R-nTRqmYak4tJ~1jfpJxmTMSNMYe8hkkhNwYnxQd8HxRJjw__",
+      ],
+      price: 23000,
+      n_of_likes: 10000,
+    },
+    {
+      id: 7,
+      name: "Adidas Yeezy 500",
+      brief_description: "Lorem ipsum",
+      detailed_description: "Lorem Lorem Lorem Loren",
+      images: [
+        "https://s3-alpha-sig.figma.com/img/5590/5549/2069afa9836751980ab25b2d6c747052?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EvP4grzEGty0otzCD3AaXmn05xeu2kw0cJSru6solxYy7gVuIVlsP-l~VqrW6qVc3HDG5RKZZbmvXkZJIfl5ZXk~7t7rnuW7saXR5rYLgBNB7W3sTAY9YaK-VQWqot5l6RmemTLXNaeFBAJsTl4g5Y3~YKcA~LtQPaHGIR-~73PDhwgmFvy8nFoCerOnTy6-ubSyev0AIa76vRQVfEH-mKzB9Ah8CL~nzq8i9aOmUn9ElP-gGXzMTfqPUJM8zvppL7MxFaVr3Q4fWUgtc-4XJvPrVjuikFxHRDtEqU8R-nTRqmYak4tJ~1jfpJxmTMSNMYe8hkkhNwYnxQd8HxRJjw__",
+      ],
+      price: 23000,
+      n_of_likes: 10000,
+    },
+    {
+      id: 8,
+      name: "Adidas Yeezy 500",
+      brief_description: "Lorem ipsum",
+      detailed_description: "Lorem Lorem Lorem Loren",
+      images: [
+        "https://s3-alpha-sig.figma.com/img/5590/5549/2069afa9836751980ab25b2d6c747052?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EvP4grzEGty0otzCD3AaXmn05xeu2kw0cJSru6solxYy7gVuIVlsP-l~VqrW6qVc3HDG5RKZZbmvXkZJIfl5ZXk~7t7rnuW7saXR5rYLgBNB7W3sTAY9YaK-VQWqot5l6RmemTLXNaeFBAJsTl4g5Y3~YKcA~LtQPaHGIR-~73PDhwgmFvy8nFoCerOnTy6-ubSyev0AIa76vRQVfEH-mKzB9Ah8CL~nzq8i9aOmUn9ElP-gGXzMTfqPUJM8zvppL7MxFaVr3Q4fWUgtc-4XJvPrVjuikFxHRDtEqU8R-nTRqmYak4tJ~1jfpJxmTMSNMYe8hkkhNwYnxQd8HxRJjw__",
+      ],
+      price: 23000,
+      n_of_likes: 10000,
+    },
+    {
+      id: 9,
+      name: "Adidas Yeezy 500",
+      brief_description: "Lorem ipsum",
+      detailed_description: "Lorem Lorem Lorem Loren",
+      images: [
+        "https://s3-alpha-sig.figma.com/img/5590/5549/2069afa9836751980ab25b2d6c747052?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EvP4grzEGty0otzCD3AaXmn05xeu2kw0cJSru6solxYy7gVuIVlsP-l~VqrW6qVc3HDG5RKZZbmvXkZJIfl5ZXk~7t7rnuW7saXR5rYLgBNB7W3sTAY9YaK-VQWqot5l6RmemTLXNaeFBAJsTl4g5Y3~YKcA~LtQPaHGIR-~73PDhwgmFvy8nFoCerOnTy6-ubSyev0AIa76vRQVfEH-mKzB9Ah8CL~nzq8i9aOmUn9ElP-gGXzMTfqPUJM8zvppL7MxFaVr3Q4fWUgtc-4XJvPrVjuikFxHRDtEqU8R-nTRqmYak4tJ~1jfpJxmTMSNMYe8hkkhNwYnxQd8HxRJjw__",
+      ],
+      price: 23000,
+      n_of_likes: 10000,
+    },
+    {
+      id: 10,
+      name: "BMW M4 Coupe: A Two-Door",
+      brief_description: "Lorem ipsum",
+      detailed_description: "Lorem Lorem Lorem Loren",
+      images: [
+        "https://s3-alpha-sig.figma.com/img/4bae/8437/fea176a66b72afeed0f229f47853b5db?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=G7SBhjCkTbqlqILgq0o5FOxAHwFQhho2TpsvyUhFVjGtSTR~SEpTPj28k5-N1Vk~eudqpAOm7h6Zu6N~XTLqx6KKG0uO19V2LzRWAghJVYGQQTdqOtoKCcnyqPugVsVwvnVVCpS7pKUwRA-LuZoKyuNCGydDTW~9VVIozls8F9Eyfi85mqFituZ8gMcrTb3rgoMdevk4s691-X9nhg5UIBE8XkutP1U6Of~3ahdnuaArkVoQ8wZ-kkmH7HcPE2IJ97KXZdRrtVu0V6Pn7QOicXtxZ0JtvpSRTAHSRprs0afZNz7mjvqLCC4UNYawT6fpe8~zPZypYYljl1CdS4Wu2w__",
+      ],
+      price: 23000,
+      n_of_likes: 100,
+    },
+    {
+      id: 11,
+      name: "BMW M4 Coupe: A Two-Door",
+      brief_description: "Lorem ipsum",
+      detailed_description: "Lorem Lorem Lorem Loren",
+      images: [
+        "https://s3-alpha-sig.figma.com/img/4bae/8437/fea176a66b72afeed0f229f47853b5db?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=G7SBhjCkTbqlqILgq0o5FOxAHwFQhho2TpsvyUhFVjGtSTR~SEpTPj28k5-N1Vk~eudqpAOm7h6Zu6N~XTLqx6KKG0uO19V2LzRWAghJVYGQQTdqOtoKCcnyqPugVsVwvnVVCpS7pKUwRA-LuZoKyuNCGydDTW~9VVIozls8F9Eyfi85mqFituZ8gMcrTb3rgoMdevk4s691-X9nhg5UIBE8XkutP1U6Of~3ahdnuaArkVoQ8wZ-kkmH7HcPE2IJ97KXZdRrtVu0V6Pn7QOicXtxZ0JtvpSRTAHSRprs0afZNz7mjvqLCC4UNYawT6fpe8~zPZypYYljl1CdS4Wu2w__",
+      ],
+      price: 23000,
+      n_of_likes: 100,
+    },
+    {
+      id: 12,
+      name: "BMW M4 Coupe: A Two-Door",
+      brief_description: "Lorem ipsum",
+      detailed_description: "Lorem Lorem Lorem Loren",
+      images: [
+        "https://s3-alpha-sig.figma.com/img/4bae/8437/fea176a66b72afeed0f229f47853b5db?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=G7SBhjCkTbqlqILgq0o5FOxAHwFQhho2TpsvyUhFVjGtSTR~SEpTPj28k5-N1Vk~eudqpAOm7h6Zu6N~XTLqx6KKG0uO19V2LzRWAghJVYGQQTdqOtoKCcnyqPugVsVwvnVVCpS7pKUwRA-LuZoKyuNCGydDTW~9VVIozls8F9Eyfi85mqFituZ8gMcrTb3rgoMdevk4s691-X9nhg5UIBE8XkutP1U6Of~3ahdnuaArkVoQ8wZ-kkmH7HcPE2IJ97KXZdRrtVu0V6Pn7QOicXtxZ0JtvpSRTAHSRprs0afZNz7mjvqLCC4UNYawT6fpe8~zPZypYYljl1CdS4Wu2w__",
+      ],
+      price: 23000,
+      n_of_likes: 100,
+    },
+  ],
+};
+export default initialState;
